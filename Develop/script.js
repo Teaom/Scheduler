@@ -1,8 +1,4 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-$(function () {
-});
+// Grabbing  date information with JS and storing letiable data
 let event_log;
 
 const weekday=new Array(7);
@@ -17,23 +13,27 @@ weekday[6]="Saturday";
 let d = new Date();
 let day = weekday[d.getDay()];
 
+// Date
 let date_raw = new Date();
-let dd = date_raw.getDate();
-let MM = date_raw.getMonth();
-let yyyy = date_raw.getFullYear();
-let date_today=(MM+1)+"/ "+dd+"/ "+yyyy;
+let dd = date_raw.getDate(); 
+let MM = date_raw.getMonth(); 
+let yyyy = date_raw.getFullYear(); 
+let date_today=(MM+1)+". "+dd+". "+yyyy;
 let day_date=' '+day+', '+date_today;
 
+// Obtains present hour to the match_color_bytime function 
 let present_hr= d.getHours();
+
+//Creates H2 tag and displays the day of the week and date in the jumbotron
 
 const h2_todays_date=$("<h2 id='p_todays_date'>"+day_date+" </h2> <br> <br>")
 h2_todays_date.attr("class", "cover-heading text-dark font-italic font-weight-bold  ")
 
-$("#topHead").append(h2_todays_date);
+$("#jumbotron").append(h2_todays_date);
 
-const statement=$("<h3> Ma Grind Flizow </h3>")
+const statement=$("<h3>Daily Schedule </h3>")
 statement.attr("class", "cover-heading font-weight-bold textarea ")
-$("#topHead").append(statement);
+$("#jumbotron").append(statement);
 
 //When the save button is clicked the event is triggered and the data is saved.
 
@@ -93,7 +93,8 @@ event_log[button_id]=text_in_box
 localStorage.setItem('event_log', JSON.stringify(event_log));
 console.log( text_in_box, localStorage)
 
+}); 
 
 
 
-});
+
