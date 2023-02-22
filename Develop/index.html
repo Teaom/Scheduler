@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="style.css" />
     <title>Work Day Scheduler</title>
   </head>
+  <header id="topHeader" class="topHeader text-white" style="background-color: rgb(78, 78, 128);">
+  </header>
 
   <body>
     <header class="p-5 mb-4">
@@ -42,13 +44,17 @@
         -->
 
       <!-- Example of a past time block. The "past" class adds a gray background color. -->
-      <div id="hour-9" class="row time-block past">
-        <div class="col-2 col-md-1 hour text-center py-3">9AM</div>
-        <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
-        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
-          <i class="fas fa-save" aria-hidden="true"></i>
-        </button>
-      </div>
+      <body style='background-color:rgb(122, 100, 100)'>
+        <div class="container" >
+        <div style="padding-top: 1.9rem;"  class="row">
+        <div class="col text-center bg-transperant">
+        <h3 style="border-radius: 1rem; margin-top: 1rem; margin-right: 0" class="bg-dark text-white"> 9 am </h3>
+        </div>
+        <textarea id='9' style="padding: 2.5rem; line-height: 100%; border-radius: 1rem;" class="textarea form-control col-9 blockquote text-black" rows="1"></textarea>    
+        <div class="col bg-transperant text-center">
+        <button id='1' style="margin-left: 1rem; margin-bottom: 1rem; border-radius: 1rem;" type="button" class="btn  btn-info btn-lg"><h2><i class="fas fa-save"></i></h2></button>    
+        </div>        
+        </div> 
 
       <!-- Example of a present time block. The "present" class adds a red background color. -->
       <div id="hour-10" class="row time-block present">

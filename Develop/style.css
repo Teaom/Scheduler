@@ -6,7 +6,7 @@ body {
 textarea {
   background: transparent;
   border: none;
-  resize: 50px;
+  resize: none;
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
@@ -57,3 +57,24 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
+.present-customgreen {
+  --bg-opacity: 1;
+  background-color: #7f7b81;
+  background-color: rgba(50,160,110,var(--bg-opacity));
+}
+
+.future-blue {
+  --bg-opacity: 1;
+  background-color: #133747;
+  background-color: rgba(60, 141, 154,var(--bg-opacity));
+}
+.past-grey {
+  --bg-opacity: 1;
+  background-color: #bcbcbc;
+  background-color: rgba(191, 191, 191,var(--bg-opacity));
+  }
+
+.form-control{
+    border-block-start-color: rgb(122, 100, 100);
+  }

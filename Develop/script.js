@@ -24,7 +24,76 @@ let yyyy = date_raw.getFullYear();
 let date_today=(MM+1)+"/ "+dd+"/ "+yyyy;
 let day_date=' '+day+', '+date_today;
 
+let present_hr= d.getHours();
+
+const h2_todays_date=$("<h2 id='p_todays_date'>"+day_date+" </h2> <br> <br>")
+h2_todays_date.attr("class", "cover-heading text-dark font-italic font-weight-bold  ")
+
+$("#topHead").append(h2_todays_date);
+
+const statement=$("<h3> Ma Grind Flizow </h3>")
+statement.attr("class", "cover-heading font-weight-bold textarea ")
+$("#topHead").append(statement);
+
+//When the save button is clicked the event is triggered and the data is saved.
+
+function match_color_bytime (){
+
+$('textarea').each(function(){
+    const schedule_hr=parseInt($(this).attr('id'));
+    if (schedule_hr===present_hr){
+    $(this).addClass('present-customgreen'); 
+    } else if (schedule_hr>present_hr) {
+    $(this).addClass('future-blue');
+    } else {
+        $(this).addClass('past-grey')
+    }
+}); 
+}; 
+
+match_color_bytime()
+
+// Saving tasks
+
+function pull_local_data(){
+    if (localStorage.getItem('event_log') !== null) {
+
+     event_log=JSON.parse(localStorage.getItem('event_log'));
+      $('.textarea').each(function (button_id){
+                $(this).val(event_log[button_id]);        
+                });
+    } else {
+        event_log={};
+
+        for (let i=1;i<=9;i++){
+        event_log[i]="";
+        }
+        console.log(event_log)
+    }
+}
+
+pull_local_data();
+
+// Saves data to local storage 
+
+$('.btn').click(function (e){
+e.preventDefault();
+
+let text_in_box = $(this).parent().prev().val();
+console.dir('dir',$(this).parent().prev())
+console.log('text in box:', text_in_box)
+
+const button_id=$(this).attr('id')
+
+console.log(button_id, text_in_box)
+
+event_log[button_id]=text_in_box
+
+// Data needs to be converted to JSON
+localStorage.setItem('event_log', JSON.stringify(event_log));
+console.log( text_in_box, localStorage)
 
 
 
 
+});
